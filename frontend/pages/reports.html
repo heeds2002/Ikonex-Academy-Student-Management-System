@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Cards - Ikonex Academy SMS</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="reports">
+<div class="layout">
+<nav class="sidebar">
+  <div class="sidebar-logo"><div class="logo-mark"><div class="logo-icon"><i class="ti ti-school"></i></div><div><div class="logo-text">Ikonex Academy</div><div class="logo-sub">School Management</div></div></div></div>
+  <div class="nav"><div class="nav-section"><div class="nav-label">Overview</div><a class="nav-item" data-page="dashboard" href="../index.html"><i class="ti ti-layout-dashboard"></i>Dashboard</a></div><div class="nav-section"><div class="nav-label">Academic</div><a class="nav-item" data-page="streams" href="streams.html"><i class="ti ti-layers-subtract"></i>Class Streams</a><a class="nav-item" data-page="subjects" href="subjects.html"><i class="ti ti-book"></i>Subjects</a><a class="nav-item" data-page="students" href="students.html"><i class="ti ti-users"></i>Students</a></div><div class="nav-section"><div class="nav-label">Assessment</div><a class="nav-item" data-page="scores" href="scores.html"><i class="ti ti-clipboard-list"></i>Scores</a><a class="nav-item" data-page="results" href="results.html"><i class="ti ti-chart-bar"></i>Results</a></div><div class="nav-section"><div class="nav-label">Reports</div><a class="nav-item" data-page="reports" href="reports.html"><i class="ti ti-file-text"></i>Report Cards</a></div></div>
+</nav>
+<div class="main">
+  <div class="topbar"><div class="topbar-left"><span class="page-title">Report Cards</span></div><div class="topbar-right"><span style="font-size:12px;color:var(--color-text-secondary)">Term 2, 2025</span><div class="avatar" style="width:32px;height:32px;font-size:12px">AD</div></div></div>
+  <div class="content"><div class="no-print" style="display:flex;gap:10px;margin-bottom:16px"><select id="report-stream" onchange="populateReportStudents()" style="flex:1"><option value="">Select Stream...</option></select><select id="report-student" style="flex:1"><option value="">Select Student...</option></select><button class="btn btn-primary" onclick="generateReport()"><i class="ti ti-file-text"></i>Generate Report</button></div><div id="report-output"></div></div>
+</div>
+</div>
+<script src="../js/api.js"></script>
+<script src="../js/app.js"></script>
+
+</body>
+</html>

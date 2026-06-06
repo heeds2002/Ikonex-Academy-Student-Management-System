@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Scores - Ikonex Academy SMS</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="scores">
+<div class="layout">
+<nav class="sidebar">
+  <div class="sidebar-logo"><div class="logo-mark"><div class="logo-icon"><i class="ti ti-school"></i></div><div><div class="logo-text">Ikonex Academy</div><div class="logo-sub">School Management</div></div></div></div>
+  <div class="nav"><div class="nav-section"><div class="nav-label">Overview</div><a class="nav-item" data-page="dashboard" href="../index.html"><i class="ti ti-layout-dashboard"></i>Dashboard</a></div><div class="nav-section"><div class="nav-label">Academic</div><a class="nav-item" data-page="streams" href="streams.html"><i class="ti ti-layers-subtract"></i>Class Streams</a><a class="nav-item" data-page="subjects" href="subjects.html"><i class="ti ti-book"></i>Subjects</a><a class="nav-item" data-page="students" href="students.html"><i class="ti ti-users"></i>Students</a></div><div class="nav-section"><div class="nav-label">Assessment</div><a class="nav-item" data-page="scores" href="scores.html"><i class="ti ti-clipboard-list"></i>Scores</a><a class="nav-item" data-page="results" href="results.html"><i class="ti ti-chart-bar"></i>Results</a></div><div class="nav-section"><div class="nav-label">Reports</div><a class="nav-item" data-page="reports" href="reports.html"><i class="ti ti-file-text"></i>Report Cards</a></div></div>
+</nav>
+<div class="main">
+  <div class="topbar"><div class="topbar-left"><span class="page-title">Assessment Scores</span></div><div class="topbar-right"><span style="font-size:12px;color:var(--color-text-secondary)">Term 2, 2025</span><div class="avatar" style="width:32px;height:32px;font-size:12px">AD</div></div></div>
+  <div class="content"><div class="section-hdr"><div></div><button class="btn btn-primary" onclick="populateScoreFilters();openModal('modal-score')"><i class="ti ti-plus"></i>Record Score</button></div><div style="display:flex;gap:10px;margin-bottom:16px"><select id="score-filter-stream" onchange="renderScores()" style="flex:1"><option value="">All Streams</option></select><select id="score-filter-subject" onchange="renderScores()" style="flex:1"><option value="">All Subjects</option></select><select id="score-filter-type" onchange="renderScores()" style="flex:1"><option value="">All Types</option><option>Exam</option><option>CAT</option><option>Assignment</option></select></div><div class="card"><table><thead><tr><th>Student</th><th>Stream</th><th>Subject</th><th>Type</th><th>Score</th><th>Max</th><th>%</th><th>Grade</th><th>Actions</th></tr></thead><tbody id="scores-table"><tr><td colspan="9" class="empty">No scores recorded yet</td></tr></tbody></table></div></div>
+</div>
+</div>
+<div class="modal-overlay" id="modal-score"><div class="modal"><div class="modal-hdr"><span class="modal-title" id="modal-score-title">Record Score</span><button class="btn btn-sm" onclick="closeModal('modal-score')"><i class="ti ti-x"></i></button></div><div class="modal-body"><input type="hidden" id="score-edit-id"><div class="grid-2"><div class="form-group"><label class="form-label">Stream</label><select id="score-stream" onchange="populateScoreStudents()"><option value="">Select stream...</option></select></div><div class="form-group"><label class="form-label">Student *</label><select id="score-student"><option value="">Select student...</option></select></div></div><div class="grid-2"><div class="form-group"><label class="form-label">Subject *</label><select id="score-subject"><option value="">Select subject...</option></select></div><div class="form-group"><label class="form-label">Assessment Type *</label><select id="score-type"><option>Exam</option><option>CAT</option><option>Assignment</option></select></div></div><div class="grid-2"><div class="form-group"><label class="form-label">Score Obtained *</label><input type="number" id="score-val" min="0" placeholder="0"></div><div class="form-group"><label class="form-label">Maximum Score *</label><input type="number" id="score-max" min="1" value="100" placeholder="100"></div></div><div id="score-form-alert"></div></div><div class="modal-footer"><button class="btn" onclick="closeModal('modal-score')">Cancel</button><button class="btn btn-primary" onclick="saveScore()">Save Score</button></div></div></div>
+
+<script src="../js/api.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
